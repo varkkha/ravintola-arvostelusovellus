@@ -1,0 +1,22 @@
+Arvosteltu ravintola: {{ restaurant }}
+<p>
+Vierailuajankohta <br>
+Päivämäärä: {{ date }} <br>
+Ajankohta: {{ type }} <br>
+<p>
+Ruoka: {{ food }} <br>
+<p>
+Tunnelma: {{ atmosphere }} <br>
+<p>
+Palvelu: {{ service }} <br>
+<p>
+Vapaa palaute: <br> 
+{{ feedback }}
+<p>
+<p>
+{% if session.user_id %}
+Olet kirjautunut sisään.
+<a href="/frontpage">Etusivulle</a> | <a href="/logout">Kirjaudu ulos</a>
+{% else %}
+<a href="/login">Kirjaudu sisään</a>
+{% endif %}

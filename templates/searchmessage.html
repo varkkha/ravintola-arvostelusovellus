@@ -1,0 +1,19 @@
+Viestit:
+<hr>
+{% for message in messages %}
+<i>Otsikko:</i> {{ message[0] }}
+<p>
+<i>Viesti:</i> {{ message[1] }}
+<p>
+<i>Viestin lähettäjä:</i> {{ message[2] }} <br>
+<p>
+<i>Viesti lähetetty:</i> {{ message[3] }}
+<hr>
+<p>
+{% endfor %}
+{% if session.user_id %}
+Olet kirjautunut sisään.
+<a href="/frontpage">Etusivulle</a> | <a href="/logout">Kirjaudu ulos</a>
+{% else %}
+<a href="/login">Kirjaudu sisään</a>
+{% endif %}
