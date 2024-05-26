@@ -29,3 +29,5 @@ CREATE TABLE messages (
 #keskustelualueet?
 
 #keskusteluketjut?
+
+#schema.sql

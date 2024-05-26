@@ -22,3 +22,5 @@ def searchmessage():
     sql = text("SELECT title, content, user_id, sent_at FROM messages WHERE content LIKE :query")
     result = db.session.execute(sql, {"query":"%"+query+"%"})
     return result.fetchall()
+
+#messages.py

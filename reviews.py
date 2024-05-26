@@ -22,3 +22,5 @@ def searchreview():
     sql = text("SELECT R.id, R.restaurant, R.date, R.type, R.food, R.atmosphere, R.service, R.feedback, R.user_id, R.sent_at, U.username FROM reviews R, users U WHERE R.user_id=U.id AND restaurant LIKE :query")
     result = db.session.execute(sql, {"query":"%"+query+"%"})
     return result.fetchall()
+
+#reviews
