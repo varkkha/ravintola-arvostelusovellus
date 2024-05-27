@@ -22,7 +22,7 @@ Sovelluksen ominaisuuksia:
 
 - Ylläpitäjä voi poistaa tarvittaessa muiden jättämän arvostelun tai viestin. 
 
-**Sovellus ei ole testattavissa Fly.iossa**
+**Sovellus ei ole testattavissa Fly.io:ssa**
 
 **Ohjeet sovelluksen käynnistämiseen paikallisesti**
 
