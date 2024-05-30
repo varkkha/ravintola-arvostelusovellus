@@ -19,8 +19,6 @@ def sendreview(restaurant, date, type, food, atmosphere, service, feedback):
 
 def searchreview():
     query = request.args["query"]
-    sql = text("SELECT R.id, R.restaurant, R.date, R.type, R.food, R.atmosphere, R.service, R.feedback, R.user_id, R.sent_at, U.username FROM reviews R, users U WHERE R.user_id=U.id AND restaurant LIKE :query")
+    sql = text("SELECT R.id, R.restaurant, R.date, R.type, R.food, R.atmosphere, R.service, R.feedback, R.user_id, R.sent_at, U.username FROM reviews R, users U WHERE R.user_id=U.id AND restaurant LIKE :query ORDER BY R.id DESC")
     result = db.session.execute(sql, {"query":"%"+query+"%"})
     return result.fetchall()
-
-#reviews
