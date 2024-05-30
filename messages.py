@@ -19,8 +19,6 @@ def send(title, content):
 
 def searchmessage():
     query = request.args["query"]
-    sql = text("SELECT title, content, user_id, sent_at FROM messages WHERE content LIKE :query")
+    sql = text("SELECT T.title, T.content, U.username, T.sent_at FROM messages T, users U WHERE T.user_id=U.id AND content LIKE :query ORDER BY T.id DESC")
     result = db.session.execute(sql, {"query":"%"+query+"%"})
     return result.fetchall()
-
-#messages.py
