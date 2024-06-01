@@ -1,4 +1,5 @@
-Viestit:
+Poista viestejä:
+<form action="/deletemessage" method="post">
 <hr>
 {% for message in messages %}
 <i>Otsikko:</i> {{ message[0] }}
@@ -8,9 +9,11 @@ Viestit:
 <i>Viestin lähettäjä:</i> {{ message[2] }} <br>
 <p>
 <i>Viesti lähetetty:</i> {{ message[3] }}
-<p>
+<input type="hidden" name="id" value= "{{ message[4] }}">
+<input type="submit" value="Poista">
 <hr>
 {% endfor %}
+</form>
 {% if session.user_id %}
 Olet kirjautunut sisään.
 <a href="/frontpage">Etusivulle</a> | <a href="/logout">Kirjaudu ulos</a>

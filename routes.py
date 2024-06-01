@@ -109,4 +109,33 @@ def logout():
     users.logout()
     return redirect("/")
 
-#routes
+@app.route("/deletemessage", methods=["get", "post"])
+def deletemessage():
+
+    if request.method == "GET":
+        list=messages.get_list()
+        return render_template("deletemessages.html", messages=list)
+
+    if request.method == "POST":
+        
+        if "id" in request.form:
+            id = request.form["id"]
+            messages.deletemessage(id)
+
+        return redirect("/frontpage")
+    
+@app.route("/deletereview", methods=["get", "post"])
+def deletereview():
+
+    if request.method == "GET":
+        list=reviews.get_list()
+        return render_template("deletereviews.html", reviews=list)
+
+    if request.method == "POST":
+        
+        if "id" in request.form:
+            id = request.form["id"]
+            reviews.deletereview(id)
+
+        return redirect("/frontpage")
+

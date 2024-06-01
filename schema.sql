@@ -15,7 +15,8 @@ CREATE TABLE reviews (
     atmosphere INTEGER,
     service INTEGER,
     user_id INTEGER REFERENCES users,
-    sent_at TIMESTAMP
+    sent_at TIMESTAMP,
+    visible INTEGER
 );
 
 CREATE TABLE messages (
@@ -23,9 +24,8 @@ CREATE TABLE messages (
     title TEXT,
     content TEXT,
     user_id INTEGER REFERENCES users,
-    sent_at TIMESTAMP
+    sent_at TIMESTAMP,
+    visible INTEGER
 );
 
 #keskustelualueet?
-
-#keskusteluketjut?
