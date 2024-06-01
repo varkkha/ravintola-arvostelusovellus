@@ -18,7 +18,7 @@ Sovelluksen ominaisuuksia:
 - Käyttäjät voivat kirjoittaa viestejä keskustelupalstalle ja lukea muiden jättämiä viestejä.
 - Käyttäjät voivat etsiä kaikki viestit, joiden osana on annettu sana.
 
-**Välipalautuksessa 2 kaikki voivat tehdä tämän**
+**Välipalautuksessa 2 kaikki käyttäjät voivat tehdä tämän**
 
 - Ylläpitäjä voi poistaa tarvittaessa muiden jättämän arvostelun tai viestin. 
 
