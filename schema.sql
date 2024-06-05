@@ -27,5 +27,3 @@ CREATE TABLE messages (
     sent_at TIMESTAMP,
     visible INTEGER
 );
-
-#keskustelualueet?

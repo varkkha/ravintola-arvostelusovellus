@@ -22,7 +22,7 @@ def logout():
 def register(username, password):
     hash_value = generate_password_hash(password)
     try:
-        sql = text("INSERT INTO users (username,password) VALUES (:username,:password)")
+        sql = text("INSERT INTO users (username,password,admin) VALUES (:username,:password,0)")
         db.session.execute(sql, {"username":username, "password":hash_value})
         db.session.commit()
     except:
@@ -32,4 +32,10 @@ def register(username, password):
 def user_id():
     return session.get("user_id",0)
 
-#users
+def is_admin():
+    sql = text("SELECT admin FROM users WHERE id=:id")
+    result = db.session.execute(sql, {"id":session.get("user_id")})
+    admin = result.fetchone()
+    return admin[0]
+
+

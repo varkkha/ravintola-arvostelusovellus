@@ -1,9 +1,8 @@
 Virhe: {{ message }}
+<p>
 {% if session.user_id %}
 Olet kirjautunut sisään.
 <a href="/frontpage">Etusivulle</a> | <a href="/logout">Kirjaudu ulos</a>
 {% else %}
 <a href="/login">Kirjaudu sisään</a>
 {% endif %}
-
-#error.html

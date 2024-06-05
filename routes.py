@@ -112,30 +112,40 @@ def logout():
 @app.route("/deletemessage", methods=["get", "post"])
 def deletemessage():
 
-    if request.method == "GET":
-        list=messages.get_list()
-        return render_template("deletemessages.html", messages=list)
+    if users.is_admin() == 1:
 
-    if request.method == "POST":
+        if request.method == "GET":
+            list=messages.get_list()
+            return render_template("deletemessages.html", messages=list)
+
+        if request.method == "POST":
+            
+            if "id" in request.form:
+                id = request.form["id"]
+                messages.deletemessage(id)
+
+            return redirect("/frontpage")
         
-        if "id" in request.form:
-            id = request.form["id"]
-            messages.deletemessage(id)
-
-        return redirect("/frontpage")
+    else:
+        return render_template("error.html", message="Vain ylläpitäjä saa poistaa viestejä")
     
 @app.route("/deletereview", methods=["get", "post"])
 def deletereview():
 
-    if request.method == "GET":
-        list=reviews.get_list()
-        return render_template("deletereviews.html", reviews=list)
+    if users.is_admin() == 1:
 
-    if request.method == "POST":
+        if request.method == "GET":
+            list=reviews.get_list()
+            admin=users.is_admin()
+            return render_template("deletereviews.html", reviews=list)
+
+        if request.method == "POST":
+            if "id" in request.form:
+                id = request.form["id"]
+                reviews.deletereview(id)
+                return redirect("/frontpage")
         
-        if "id" in request.form:
-            id = request.form["id"]
-            reviews.deletereview(id)
+    else:
+        return render_template("error.html", message="Vain ylläpitäjä saa poistaa viestejä") 
 
-        return redirect("/frontpage")
 
