@@ -1,3 +1,6 @@
+{% extends "layout.html" %}
+{% block title %}Poista arvosteluja{% endblock %}
+{% block content %}
 Poista arvosteluja:
 <form action="/deletereview" method="post">
 <hr>
@@ -16,16 +19,12 @@ Poista arvosteluja:
 <p>
 <i>Vapaa palaute:</i> {{ review[1] }}
 <p>
-<i>Arvostelu annettu:</i> {{ review[8] }} <br>
+<i>Arvostelu annettu:</i> {{ review[8].strftime("%Y-%m-%d %H:%M:%S") }} <br>
 <i>Arvostelun antoi:</i> {{ review[7] }}
 <input type="hidden" name="id" value= "{{ review[9] }}">
 <input type="submit" value="Poista">
 <hr>
 {% endfor %}
 </form>
-{% if session.user_id %}
-Olet kirjautunut sisään.
-<a href="/frontpage">Etusivulle</a> | <a href="/logout">Kirjaudu ulos</a>
-{% else %}
-<a href="/login">Kirjaudu sisään</a>
-{% endif %}
+
+{% endblock %}

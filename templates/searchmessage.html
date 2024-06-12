@@ -1,3 +1,6 @@
+{% extends "layout.html" %}
+{% block title %}Viestit{% endblock %}
+{% block content %}
 Viestit:
 <hr>
 {% for message in messages %}
@@ -9,7 +12,7 @@ Viestit:
 <p>
 <i>Viestin lähettäjä:</i> {{ message[2] }} <br>
 <p>
-<i>Viesti lähetetty:</i> {{ message[3] }}
+<i>Viesti lähetetty:</i> {{ message[3].strftime("%Y-%m-%d %H:%M:%S") }}
 <hr>
 <p>
 {% endfor %}
@@ -19,3 +22,5 @@ Olet kirjautunut sisään.
 {% else %}
 <a href="/login">Kirjaudu sisään</a>
 {% endif %}
+
+{% endblock %}

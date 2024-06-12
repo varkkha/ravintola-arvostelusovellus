@@ -1,6 +1,9 @@
-Arvosteltu ravintola: {{ restaurant }}
+{% extends "layout.html" %}
+{% block title %}Arvostelu{% endblock %}
+{% block content %}
+<b>Arvosteltu ravintola: {{ restaurant }}</b>
 <p>
-Vierailuajankohta <br>
+Vierailuajankohta<br>
 Päivämäärä: {{ date }} <br>
 Ajankohta: {{ type }} <br>
 <p>
@@ -20,3 +23,5 @@ Olet kirjautunut sisään.
 {% else %}
 <a href="/login">Kirjaudu sisään</a>
 {% endif %}
+
+{% endblock %}

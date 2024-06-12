@@ -1,10 +1,13 @@
+{% extends "layout.html" %}
+{% block title %}Arvostele ravintola{% endblock %}
+{% block content %}
 <form action="/sendreview" method="POST">
     <b>Arvostele ravintola</b>
     <p>
-    Ravintolan nimi:
+    Ravintolan nimi*:
     <input type="text" name="restaurant" required minlength="1" maxlength="50">
     <p>
-    Päivämäärä:
+    Päivämäärä*:
     <input type="date" name="date" required>
     <p>
     Ajankohta:
@@ -12,38 +15,36 @@
     <option value="Aamiainen" selected> Aamiainen
     <option value="Lounas" selected> Lounas
     <option value="Illallinen" selected> Illallinen
-    <option value="Jokin muu" selected> Jokin muu
+    <option value="Ei valittu" selected> Ei valittu
     </select>
     <p>
-    Ruoka: <br>
-    <input type="radio" name="food" value="1"> 1
+    Ruoka*: <br>
+    <input type="radio" required name="food" value="1"> 1
     <input type="radio" name="food" value="2"> 2
     <input type="radio" name="food" value="3"> 3
     <input type="radio" name="food" value="4"> 4
     <input type="radio" name="food" value="5"> 5
     <p>
-    Tunnelma: <br>
-    <input type="radio" name="atmosphere" value="1"> 1
+    Tunnelma*: <br>
+    <input type="radio" required name="atmosphere" value="1"> 1
     <input type="radio" name="atmosphere" value="2"> 2
     <input type="radio" name="atmosphere" value="3"> 3
     <input type="radio" name="atmosphere" value="4"> 4
     <input type="radio" name="atmosphere" value="5"> 5
     <p>
-    Palvelu: <br>
-    <input type="radio" name="service" value="1"> 1
+    Palvelu*: <br>
+    <input type="radio" required name="service" value="1"> 1
     <input type="radio" name="service" value="2"> 2
     <input type="radio" name="service" value="3"> 3
     <input type="radio" name="service" value="4"> 4
     <input type="radio" name="service" value="5"> 5
     <p>
     Vapaa palaute: <br>
-    <textarea name="feedback" rows="10" cols="50"></textarea>
+    <textarea name="feedback" rows="10" cols="50" maxlength="50"></textarea>
     <p>
     <input type="submit" value="Lähetä">
+    <p>
+    *Pakollinen kenttä
     </form>
-    {% if session.user_id %}
-    Olet kirjautunut sisään.
-    <a href="/frontpage">Etusivulle</a> | <a href="/logout">Kirjaudu ulos</a>
-    {% else %}
-    <a href="/login">Kirjaudu sisään</a>
-    {% endif %}
+
+{% endblock %}

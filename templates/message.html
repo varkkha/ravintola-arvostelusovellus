@@ -1,3 +1,6 @@
+{% extends "layout.html" %}
+{% block title %}Jättämäsi viesti{% endblock %}
+{% block content %}
 Jättämäsi viesti 
 <p>
 Otsikko: {{ title }} <br>
@@ -10,3 +13,5 @@ Olet kirjautunut sisään.
 {% else %}
 <a href="/login">Kirjaudu sisään</a>
 {% endif %}
+
+{% endblock %}

@@ -1,4 +1,6 @@
-<title>Tervetuloa</title>
+{% extends "layout.html" %}
+{% block title %}Tervetuloa{% endblock %}
+{% block content %}
 <p>
 <h1>Mitä haluaisit tehdä?</h1>
 <p>
@@ -18,23 +20,24 @@ Viestit:
 <p>
 <a href="/newmessage">Kirjoittaa uuden viestin</a>
 <p>
-<a href="/messageslisthelsinki">Lukea muiden kirjoittamia viestejä Helsinki</a>
+<a href="/messageslist">Lukea muiden kirjoittamia viestejä kaikista aihealueista</a>
 <p>
-<a href="/messageslistfood">Lukea muiden kirjoittamia viestejä annos</a>
+<p style="margin-left: 25px;">
+<a href="/messageslisthelsinki">Lukea muiden kirjoittamia ravintolasuosituksia Helsinkiin</a>
 <p>
-<a href="/messageslistexperience">Lukea muiden kirjoittamia viestejä kokemus</a>
+<p style="margin-left: 25px;">
+<a href="/messageslistfood">Lukea muiden kirjoittamia annossuosituksia</a>
 <p>
-<a href="/messageslistavoid">Lukea muiden kirjoittamia viestejä vältä</a>
+<p style="margin-left: 25px;">
+<a href="/messageslistexperience">Lukea muiden kirjoittamia suosituksia erityisistä kokemuksista</a>
 <p>
-<a href="/messageslist">Lukea muiden kirjoittamia viestejä</a>
+<p style="margin-left: 25px;">
+<a href="/messageslistavoid">Lukea muiden kirjoittamia viestejä vältettävistä ravintoloista</a>
+</p>
 <p>
 <a href="/newsearchmessage">Hakea viestiä</a>
 <p>
 <a href="/deletemessage">Poistaa viestin</a>
 <p>
-{% if session.user_id %}
-Olet kirjautunut sisään.
-<a href="/logout">Kirjaudu ulos</a>
-{% else %}
-<a href="/login">Kirjaudu sisään</a>
-{% endif %}
+
+{% endblock %}

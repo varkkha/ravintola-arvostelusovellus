@@ -1,24 +1,23 @@
+{% extends "layout.html" %}
+{% block title %}Jätä uusi viesti{% endblock %}
+{% block content %}
 <form action="/send" method="post">
     <p>
     Aihealue:
-    <select name="topic">
-    <option value="Suositus Helsinkiin" selected> Suosittele ravintolaa Helsingissä
+    <select name="topic" required>
     <option value="Suositusannos" selected> Suosittele erityisen hyvää annosta
     <option value="Suositeltu kokemus" selected> Suosittele erityistä kokemusta
     <option value="Vältä tätä" selected> Kerro mitä ravintolaa suosittelet välttämään
+    <option value="Suositus Helsinkiin" selected> Suosittele ravintolaa Helsingissä
     </select>
     <p>
     Otsikko:
     <input type="text" name="title" required minlength="1" maxlength="50">
     <p>
     Viesti: <br>
-    <textarea name="content" rows="3" cols="40"></textarea>
+    <textarea name="content" rows="3" cols="40" required minlength="1" maxlength="50"></textarea>
     <br>
     <input type="submit" value="Lähetä">
     </form>
-    {% if session.user_id %}
-    Olet kirjautunut sisään.
-    <a href="/frontpage">Etusivulle</a> | <a href="/logout">Kirjaudu ulos</a>
-    {% else %}
-    <a href="/login">Kirjaudu sisään</a>
-    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,20 @@
+<title>Ravintola-arvostelut - {% block title %}{% endblock %}</title>
+<h1>Ravintola-arvostelut</h1>
+
+{% if session.user_id %}
+Olet kirjautunut sisään.
+<p>
+<a href="/frontpage">Etusivu</a>
+<a href="/logout">Kirjaudu ulos</a><br>
+<a href="/newreview">Uusi arvostelu</a>
+<a href="/newsearchreview">Hae arvostelua</a><br>
+<a href="/newmessage">Uusi viesti</a>
+<a href="/messageslist">Lue viestejä</a>
+<a href="/newsearchmessage">Hae viestiä</a>
+{% else %}
+<a href="/login">Kirjaudu sisään</a>
+
+{% endif %}
+<hr>
+{% block content %}{% endblock %}
+<hr>

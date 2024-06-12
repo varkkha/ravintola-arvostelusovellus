@@ -1,9 +1,11 @@
 <form action="/register" method="post">
+    Tunnus ja salasana pitää olla 1-20 merkkiä pitkät
+    <p>
     Tunnus: <input type="text" name="username">
     <p>
-    Salasana: <input type="password" name="password1">
+    Salasana: <input type="password" name="password1" required minlength="1" maxlength="20">
     <p>
-    Salasana uudestaan: <input type="password" name="password2">
+    Salasana uudestaan: <input type="password" name="password2" required minlength="1" maxlength="20">
     <p>
     <input type="submit" value="Luo tunnus">
     </form>

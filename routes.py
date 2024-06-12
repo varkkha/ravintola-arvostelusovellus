@@ -3,14 +3,10 @@ from flask import request, redirect, render_template, session
 import users, reviews, messages
 from db import db
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def index():
-    return render_template("index.html")
-
-@app.route("/login", methods=["GET", "POST"])
-def login():
     if request.method == "GET":
-        return render_template("login.html")
+        return render_template("index.html")
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
@@ -30,7 +26,7 @@ def register():
         if password1 != password2:
             return render_template("error.html", message="Salasanat eroavat")
         if users.register(username, password1):
-            return redirect("/login")
+            return redirect("/")
         else:
             return render_template("error.html", message="Rekisteröinti ei onnistunut")
 
@@ -146,7 +142,7 @@ def deletemessage():
                 id = request.form["id"]
                 messages.deletemessage(id)
 
-            return redirect("/frontpage")
+            return redirect("/deletemessage")
         
     else:
         return render_template("error.html", message="Vain ylläpitäjä saa poistaa viestejä")
@@ -165,7 +161,7 @@ def deletereview():
             if "id" in request.form:
                 id = request.form["id"]
                 reviews.deletereview(id)
-                return redirect("/frontpage")
+                return redirect("/deletereview")
         
     else:
         return render_template("error.html", message="Vain ylläpitäjä saa poistaa viestejä") 

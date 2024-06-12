@@ -1,3 +1,6 @@
+{% extends "layout.html" %}
+{% block title %}Arvostelut{% endblock %}
+{% block content %}
 <b>Arvostelut</b>
 <hr>
 {% for review in reviews %}
@@ -15,7 +18,7 @@
 <p>
 <i>Vapaa palaute:</i> {{ review[1] }}
 <p>
-<i>Arvostelu annettu:</i> {{ review[8] }} <br>
+<i>Arvostelu annettu:</i> {{ review[8].strftime("%Y-%m-%d %H:%M:%S") }} <br>
 <i>Arvostelun antoi:</i> {{ review[7] }}
 <hr>
 {% endfor %}
@@ -26,3 +29,5 @@ Olet kirjautunut sisään.
 {% else %}
 <a href="/login">Kirjaudu sisään</a>
 {% endif %}
+
+{% endblock %}

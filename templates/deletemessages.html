@@ -1,4 +1,7 @@
-Poista viestejä:
+{% extends "layout.html" %}
+{% block title %}Poista viestejä{% endblock %}
+{% block content %}
+<b>Poista viestejä:</b>
 <form action="/deletemessage" method="post">
 <hr>
 {% for message in messages %}
@@ -8,7 +11,7 @@ Poista viestejä:
 <p>
 <i>Viestin lähettäjä:</i> {{ message[2] }} <br>
 <p>
-<i>Viesti lähetetty:</i> {{ message[3] }}
+<i>Viesti lähetetty:</i> {{ message[3].strftime("%Y-%m-%d %H:%M:%S") }}
 <input type="hidden" name="id" value= "{{ message[4] }}">
 <input type="submit" value="Poista">
 <hr>
@@ -20,3 +23,5 @@ Olet kirjautunut sisään.
 {% else %}
 <a href="/login">Kirjaudu sisään</a>
 {% endif %}
+
+{% endblock %}
