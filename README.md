@@ -1,6 +1,6 @@
 **Sovellus ravintola-arvosteluja varten**
 
-Sovelluksen avulla voi kertoa ravintolakokemuksistaan muille käyttäjille. Sovellukseen voi jättää arvostelun vierailemastaan ravintolasta. Lisäksi sovelluksessa on keskustelualue, jossa voi antaa ravintolasuosituksia.
+Sovelluksen avulla voi kertoa ravintolakokemuksistaan muille käyttäjille. Sovellukseen voi jättää arvostelun vierailemastaan ravintolasta. Lisäksi sovelluksessa on viestialue, johon voi jättää viestejä määritellyistä aihealueista.
 
 Sovelluksen ominaisuuksia: 
 
