@@ -7,7 +7,7 @@ CREATE TABLE users (
 
 CREATE TABLE reviews (
     id SERIAL PRIMARY KEY,
-    restaurant TEXT,
+    restaurant_id INTEGER REFERENCES restaurants,
     feedback TEXT,
     date DATE,
     type TEXT,
@@ -25,5 +25,11 @@ CREATE TABLE messages (
     content TEXT,
     user_id INTEGER REFERENCES users,
     sent_at TIMESTAMP,
+    topic TEXT,
     visible INTEGER
+);
+
+CREATE TABLE restaurants (
+    id SERIAL PRIMARY KEY,
+    restaurant TEXT
 );

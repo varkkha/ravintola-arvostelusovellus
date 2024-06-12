@@ -1,4 +1,13 @@
 <form action="/send" method="post">
+    <p>
+    Aihealue:
+    <select name="topic">
+    <option value="Suositus Helsinkiin" selected> Suosittele ravintolaa Helsingissä
+    <option value="Suositusannos" selected> Suosittele erityisen hyvää annosta
+    <option value="Suositeltu kokemus" selected> Suosittele erityistä kokemusta
+    <option value="Vältä tätä" selected> Kerro mitä ravintolaa suosittelet välttämään
+    </select>
+    <p>
     Otsikko:
     <input type="text" name="title" required minlength="1" maxlength="50">
     <p>
@@ -13,5 +22,3 @@
     {% else %}
     <a href="/login">Kirjaudu sisään</a>
     {% endif %}
-
-    #newmessage.html

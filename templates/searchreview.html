@@ -1,7 +1,7 @@
 <b>Arvostelut</b>
 <hr>
 {% for review in reviews %}
-<i>Ravintola:</i> {{ review[1] }}
+<i>Ravintola:</i> {{ review[0] }}
 <p>
 <i>Vierailuaika: </i> <br>
 <i>Päivämäärä</i> {{ review[2] }} <br>
@@ -13,10 +13,10 @@
 <p>
 <i>Palvelu:</i> {{ review[6] }}
 <p>
-<i>Vapaa palaute:</i> {{ review[7] }}
+<i>Vapaa palaute:</i> {{ review[1] }}
 <p>
-<i>Arvostelu annettu:</i> {{ review[9] }} <br>
-<i>Arvostelun antoi:</i> {{ review[10] }}
+<i>Arvostelu annettu:</i> {{ review[8] }} <br>
+<i>Arvostelun antoi:</i> {{ review[7] }}
 <hr>
 {% endfor %}
 {% if session.user_id %}
@@ -26,5 +26,3 @@ Olet kirjautunut sisään.
 {% else %}
 <a href="/login">Kirjaudu sisään</a>
 {% endif %}
-
-#searchreview.html

@@ -1,6 +1,14 @@
+{% if session.user_id %}
+Olet kirjautunut sisään.
+<a href="/frontpage">Etusivulle</a> | <a href="/logout">Kirjaudu ulos</a>
+{% else %}
+<a href="/login">Kirjaudu sisään</a>
+{% endif %}
 Viestit:
 <hr>
 {% for message in messages %}
+<i>Aihealue:</i> {{ message[5] }}
+<p>
 <i>Otsikko:</i> {{ message[0] }}
 <p>
 <i>Viesti:</i> {{ message[1] }}
@@ -11,9 +19,3 @@ Viestit:
 <p>
 <hr>
 {% endfor %}
-{% if session.user_id %}
-Olet kirjautunut sisään.
-<a href="/frontpage">Etusivulle</a> | <a href="/logout">Kirjaudu ulos</a>
-{% else %}
-<a href="/login">Kirjaudu sisään</a>
-{% endif %}

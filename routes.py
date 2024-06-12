@@ -84,15 +84,37 @@ def newmessage():
 def send():
     content = request.form["content"]
     title = request.form["title"]
-    if messages.send(title, content):
+    topic = request.form["topic"]
+    if messages.send(title, content, topic):
         return render_template("message.html",  title=title,
-                                                content=content)
+                                                content=content,
+                                                topic=topic)
     else:
         return render_template("error.html", message="Viestin lähetys ei onnistunut")
 
 @app.route("/messageslist")
 def messageslist():
     list=messages.get_list()
+    return render_template("messageslist.html", messages=list)
+
+@app.route("/messageslisthelsinki")
+def messageslisthelsinki():
+    list=messages.get_list_Helsinki()
+    return render_template("messageslist.html", messages=list)
+
+@app.route("/messageslistfood")
+def messageslistfood():
+    list=messages.get_list_food()
+    return render_template("messageslist.html", messages=list)
+
+@app.route("/messageslistexperience")
+def messageslistexperience():
+    list=messages.get_list_experience()
+    return render_template("messageslist.html", messages=list)
+
+@app.route("/messageslistavoid")
+def messageslistavoid():
+    list=messages.get_list_avoid()
     return render_template("messageslist.html", messages=list)
 
 @app.route("/newsearchmessage")

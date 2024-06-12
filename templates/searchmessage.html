@@ -1,6 +1,8 @@
 Viestit:
 <hr>
 {% for message in messages %}
+<i>Aihealue:</i> {{ message[4] }}
+<p>
 <i>Otsikko:</i> {{ message[0] }}
 <p>
 <i>Viesti:</i> {{ message[1] }}
@@ -17,5 +19,3 @@ Olet kirjautunut sisään.
 {% else %}
 <a href="/login">Kirjaudu sisään</a>
 {% endif %}
-
-#searchmessage.html
