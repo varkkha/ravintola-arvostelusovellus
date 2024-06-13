@@ -15,7 +15,7 @@ Sovelluksen ominaisuuksia:
       - Palvelu
   - Vapaa palaute
 - Käyttäjät voivat lukea muiden jättämiä palautteita ja etsiä arvosteluja ravintolan nimellä.
-- Käyttäjät voivat kirjoittaa viestejä keskustelupalstalle ja lukea muiden jättämiä viestejä.
+- Käyttäjät voivat kirjoittaa viestejä viestialueelle ja lukea muiden jättämiä viestejä.
 - Käyttäjät voivat etsiä kaikki viestit, joiden osana on annettu sana.
 - Ylläpitäjä voi poistaa tarvittaessa muiden jättämän arvostelun tai viestin. 
 - Käyttäjät voivat jättää palautetta tai kehitysideoita sovelluksesta. 
