@@ -1,6 +1,6 @@
 **Sovellus ravintola-arvosteluja varten**
 
-Sovelluksen avulla voi kertoa ravintolakokemuksistaan muille käyttäjille. Sovellukseen voi jättää arvostelun vierailemastaan ravintolasta. Lisäksi sovelluksessa on viestialue, johon voi jättää viestejä määritellyistä aihealueista.
+Sovelluksen avulla voi kertoa ravintolakokemuksistaan muille käyttäjille. Sovellukseen voi jättää arvostelun vierailemastaan ravintolasta. Lisäksi sovelluksessa on viestialue, johon voi jättää viestejä etukäteen määritellyistä aihealueista.
 
 Sovelluksen ominaisuuksia: 
 
@@ -18,6 +18,8 @@ Sovelluksen ominaisuuksia:
 - Käyttäjät voivat kirjoittaa viestejä keskustelupalstalle ja lukea muiden jättämiä viestejä.
 - Käyttäjät voivat etsiä kaikki viestit, joiden osana on annettu sana.
 - Ylläpitäjä voi poistaa tarvittaessa muiden jättämän arvostelun tai viestin. 
+- Käyttäjät voivat jättää palautetta tai kehitysideoita sovelluksesta. 
+- Vain ylläpitäjä voi nähdä jätetyt palautteet. 
 
 **Sovellus ei ole testattavissa Fly.io:ssa**
 
