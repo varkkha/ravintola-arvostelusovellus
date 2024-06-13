@@ -1,12 +1,39 @@
-{% extends "layout.html" %}
-{% block title %}Tervetuloa{% endblock %}
-{% block content %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+            body {
+                margin: auto;
+                max-width: 45em;
+                background: white;
+                font-family: 'Courier New';
+                color: black;
+            
+            }
+
+        </style>
+    </head>
+<title>Ravintola-arvostelut - {% block title %}{% endblock %}</title>
+<body>
+<h1>Ravintola-arvostelut</h1>
+
+{% if session.user_id %}
+Olet kirjautunut sisään | <a href="/logout">Kirjaudu ulos</a> 
+<p>
+
+{% else %}
+<a href="/login">Kirjaudu sisään</a>
+
+{% endif %}
+<hr>
+</body>
 <p>
 <h1>Mitä haluaisit tehdä?</h1>
 <p>
 <b>Arvostelut:</b>
 <p>
-<a href="/newreview">Jättää uuden arvostelun</a>
+<a href="/newreview">Jättää uuden arvostelun</a> 
 <p>
 <a href="/reviewslist">Lukea muiden jättämiä arvosteluja</a>
 <p>
@@ -39,9 +66,12 @@
 <p>
 <a href="/deletemessage">Poistaa viestin</a>
 <p>
-<a href="/newfeedback">Jättää palautetta</a>
+<p>
+<p>
+<b>Palautteet:</b>  
+<p>
+<a href="/newfeedback">Jättää palautetta sivustosta</a>
 <p>
 <a href="/feedbackslist">Lukea jätettyjä palautteita</a>
 <p>
-
-{% endblock %}
+<hr>

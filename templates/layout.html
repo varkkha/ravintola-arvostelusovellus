@@ -1,21 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+            body {
+                margin: auto;
+                max-width: 45em;
+                background: white;
+                font-family: 'Courier New';
+                color: black;
+            
+            }
+
+        </style>
+    </head>
 <title>Ravintola-arvostelut - {% block title %}{% endblock %}</title>
+<body>
 <h1>Ravintola-arvostelut</h1>
 
 {% if session.user_id %}
 Olet kirjautunut sisään.
 <p>
-<a href="/frontpage">Etusivu</a>
-<a href="/logout">Kirjaudu ulos</a><br>
-<a href="/newreview">Uusi arvostelu</a>
-<a href="/newsearchreview">Hae arvostelua</a><br>
-<a href="/newmessage">Uusi viesti</a>
-<a href="/messageslist">Lue viestejä</a>
+<a href="/frontpage">Etusivu</a> | <a href="/newfeedback">Jätä palautetta</a> | <a href="/logout">Kirjaudu ulos</a> 
+<p>
+<a href="/newreview">Uusi arvostelu</a> | 
+<a href="/reviewslist">Lue arvosteluja</a> | 
+<a href="/newsearchreview">Hae arvostelua</a> |
+<a href="/newmessage">Uusi viesti</a> |
+<a href="/messageslist">Lue viestejä</a> |
 <a href="/newsearchmessage">Hae viestiä</a><br>
-<a href="/newfeedback">Jätä palautetta</a>
 {% else %}
 <a href="/login">Kirjaudu sisään</a>
 
 {% endif %}
 <hr>
+</body>
 {% block content %}{% endblock %}
 <hr>
+</html>
