@@ -21,6 +21,12 @@ Sovelluksen ominaisuuksia:
 - Käyttäjät voivat jättää palautetta tai kehitysideoita sovelluksesta. 
 - Vain ylläpitäjä voi nähdä jätetyt palautteet. 
 
+**Tilanne välipalautuksessa 3**
+
+- Keskeiset toiminnot valmiit
+- Ulkoasun muotoilu vielä kesken
+- Virheviestien, tekstien ja tietoturvan viimeistely kesken
+
 **Sovellus ei ole testattavissa Fly.io:ssa**
 
 **Ohjeet sovelluksen käynnistämiseen paikallisesti**
