@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block title %}Palautteet{% endblock %}
+{% block content %}
+Palautteet:
+<hr>
+{% for feedback in feedbacks %}
+<i>Palaute:</i> {{ feedback[0] }}
+<p>
+<i>Viestin lähettäjä:</i> {{ feedback[1] }} <br>
+<p>
+<i>Viesti lähetetty:</i> {{ feedback[2].strftime("%Y-%m-%d %H:%M:%S") }}
+<p>
+<hr>
+{% endfor %}
+
+{% endblock %}

@@ -3,11 +3,5 @@
 {% block content %}
 Virhe: {{ message }}
 <p>
-{% if session.user_id %}
-Olet kirjautunut sisään.
-<a href="/frontpage">Etusivulle</a> | <a href="/logout">Kirjaudu ulos</a>
-{% else %}
-<a href="/">Kirjaudu sisään</a>
-{% endif %}
 
 {% endblock %}

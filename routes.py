@@ -1,6 +1,6 @@
 from app import app
 from flask import request, redirect, render_template, session
-import users, reviews, messages
+import users, reviews, messages, feedbacks
 from db import db
 
 @app.route("/", methods=["GET", "POST"])
@@ -121,6 +121,30 @@ def newsearchmessage():
 def searchmessage():
     list=messages.searchmessage()
     return render_template("searchmessage.html", messages=list)
+
+@app.route("/newfeedback")
+def newfeedback():
+    return render_template("newfeedback.html")
+
+@app.route("/sendfeedback", methods=["POST"])
+def sendfeedback():
+    note = request.form["note"]
+    if feedbacks.sendfeedback(note):
+        return render_template("feedback.html",   note=note)
+                    
+    else:
+        return render_template("error.html", message="Palautteen lähetys ei onnistunut")
+    
+@app.route("/feedbackslist")
+def feedbackslist():
+    if users.is_admin() == 1:
+            
+        list=feedbacks.get_list()
+        admin=users.is_admin()
+        return render_template("feedbackslist.html", feedbacks=list)
+    
+    else:
+        return render_template("error.html", message="Vain ylläpitäjä saa nähdä palautteet") 
 
 @app.route("/logout")
 def logout():

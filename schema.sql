@@ -33,3 +33,10 @@ CREATE TABLE restaurants (
     id SERIAL PRIMARY KEY,
     restaurant TEXT
 );
+
+CREATE TABLE feedbacks (
+    id SERIAL PRIMARY KEY, 
+    note TEXT,
+    user_id INTEGER REFERENCES users,
+    sent_at TIMESTAMP
+);
