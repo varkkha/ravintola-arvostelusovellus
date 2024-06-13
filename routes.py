@@ -24,11 +24,11 @@ def register():
         password1 = request.form["password1"]
         password2 = request.form["password2"]
         if password1 != password2:
-            return render_template("error.html", message="Salasanat eroavat")
+            return render_template("registererror.html", message="Salasanat eroavat")
         if users.register(username, password1):
             return redirect("/")
         else:
-            return render_template("error.html", message="Rekisteröinti ei onnistunut")
+            return render_template("registererror.html", message="Rekisteröinti ei onnistunut")
 
 @app.route("/frontpage")
 def frontpage():

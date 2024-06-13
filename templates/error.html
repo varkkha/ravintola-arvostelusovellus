@@ -1,7 +1,9 @@
-{% extends "layout.html" %}
-{% block title %}Error{% endblock %}
-{% block content %}
 Virhe: {{ message }}
 <p>
 
-{% endblock %}
+{% if session.user_id %}
+Olet kirjautunut sisään.
+<a href="/frontpage">Etusivulle</a> | <a href="/logout">Kirjaudu ulos</a>
+{% else %}
+<a href="/login">Kirjaudu sisään</a>
+{% endif %}
