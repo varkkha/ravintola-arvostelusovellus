@@ -22,12 +22,5 @@
 <i>Arvostelun antoi:</i> {{ review[7] }}
 <hr>
 {% endfor %}
-{% if session.user_id %}
-<p>
-Olet kirjautunut sisään.
-<a href="/frontpage">Etusivulle</a> | <a href="/logout">Kirjaudu ulos</a>
-{% else %}
-<a href="/login">Kirjaudu sisään</a>
-{% endif %}
 
 {% endblock %}
