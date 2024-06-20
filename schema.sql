@@ -5,6 +5,11 @@ CREATE TABLE users (
     admin BOOLEAN
 );
 
+CREATE TABLE restaurants (
+    id SERIAL PRIMARY KEY,
+    restaurant TEXT
+);
+
 CREATE TABLE reviews (
     id SERIAL PRIMARY KEY,
     restaurant_id INTEGER REFERENCES restaurants,
@@ -27,11 +32,6 @@ CREATE TABLE messages (
     sent_at TIMESTAMP,
     topic TEXT,
     visible INTEGER
-);
-
-CREATE TABLE restaurants (
-    id SERIAL PRIMARY KEY,
-    restaurant TEXT
 );
 
 CREATE TABLE feedbacks (
