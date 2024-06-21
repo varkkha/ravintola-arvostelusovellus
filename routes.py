@@ -1,5 +1,5 @@
 from app import app
-from flask import request, redirect, render_template, session
+from flask import request, redirect, render_template, session, abort
 import users, reviews, messages, feedbacks
 from db import db
 
@@ -13,7 +13,7 @@ def index():
         if users.login(username, password):
             return redirect("/frontpage")
         else:
-            return render_template("error.html", message="Väärä tunnus tai salasana")
+            return render_template("registererror.html", message="Väärä tunnus tai salasana")
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -59,6 +59,8 @@ def newreview():
 
 @app.route("/sendreview", methods=["POST"])
 def sendreview():
+    if session["csrf_token"] != request.form["csrf_token"]:
+        abort(403)
     feedback = request.form["feedback"]
     restaurant = request.form["restaurant"]
     date = request.form["date"]
@@ -97,6 +99,8 @@ def newmessage():
 
 @app.route("/send", methods=["POST"])
 def send():
+    if session["csrf_token"] != request.form["csrf_token"]:
+        abort(403)
     content = request.form["content"]
     title = request.form["title"]
     topic = request.form["topic"]
@@ -147,6 +151,8 @@ def newfeedback():
 
 @app.route("/sendfeedback", methods=["POST"])
 def sendfeedback():
+    if session["csrf_token"] != request.form["csrf_token"]:
+        abort(403)
     note = request.form["note"]
     if feedbacks.sendfeedback(note):
         return render_template("feedback.html",   note=note)
@@ -159,7 +165,6 @@ def feedbackslist():
     if users.is_admin() == 1:
             
         list=feedbacks.get_list()
-        admin=users.is_admin()
         return render_template("feedbackslist.html", feedbacks=list)
     
     else:
@@ -180,6 +185,9 @@ def deletemessage():
             return render_template("deletemessages.html", messages=list)
 
         if request.method == "POST":
+
+            if session["csrf_token"] != request.form["csrf_token"]:
+                abort(403)
             
             if "id" in request.form:
                 id = request.form["id"]
@@ -195,12 +203,17 @@ def deletereview():
 
     if users.is_admin() == 1:
 
+
         if request.method == "GET":
             list=reviews.get_list()
             admin=users.is_admin()
             return render_template("deletereviews.html", reviews=list)
 
         if request.method == "POST":
+
+            if session["csrf_token"] != request.form["csrf_token"]:
+                abort(403)
+
             if "id" in request.form:
                 id = request.form["id"]
                 reviews.deletereview(id)

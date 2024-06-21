@@ -14,6 +14,7 @@
 <i>Viesti lähetetty:</i> {{ message[3].strftime("%Y-%m-%d %H:%M:%S") }}
 <input type="hidden" name="id" value= "{{ message[4] }}">
 <input type="submit" value="Poista">
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 <hr>
 {% endfor %}
 </form>
