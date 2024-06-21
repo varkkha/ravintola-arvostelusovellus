@@ -20,15 +20,34 @@ def register():
     if request.method == "GET":
         return render_template("register.html")
     if request.method == "POST":
+        message = ""
+
         username = request.form["username"]
+        if len(username) < 1:
+            message = "Käyttäjätunnus ei saa olla tyhjä."
+        if len(username) > 20:
+            message = "Käyttäjätunnus ei saa olla yli 20 merkkiä pitkä."
+
         password1 = request.form["password1"]
+        if len(password1) < 1:
+            message = "Salasana ei saa olla tyhjä."
+        if len(password1) > 20:
+            message = "Salasana ei saa olla yli 20 merkkiä pitkä."
+
         password2 = request.form["password2"]
         if password1 != password2:
-            return render_template("registererror.html", message="Salasanat eroavat")
+            message="Salasanat eroavat."
+
+        if len(message) > 0:
+            return render_template("registererror.html", message=message)
+        
         if users.register(username, password1):
-            return redirect("/")
+            message="Rekisteröinti onnistui"
+            return render_template("registererror.html", message=message)
         else:
-            return render_template("registererror.html", message="Rekisteröinti ei onnistunut")
+            message="Rekisteröinti ei onnistunut"
+            return render_template("registererror.html", message=message)
+            
 
 @app.route("/frontpage")
 def frontpage():
@@ -188,6 +207,6 @@ def deletereview():
                 return redirect("/deletereview")
         
     else:
-        return render_template("error.html", message="Vain ylläpitäjä saa poistaa viestejä") 
+        return render_template("error.html", message="Vain ylläpitäjä saa poistaa arvosteluja") 
 
 
