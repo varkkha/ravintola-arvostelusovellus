@@ -21,12 +21,7 @@ Sovelluksen ominaisuuksia:
 - Käyttäjät voivat jättää palautetta tai kehitysideoita sovelluksesta. 
 - Vain ylläpitäjä voi nähdä jätetyt palautteet. 
 
-**Tilanne välipalautuksessa 3**
-
-- Keskeiset toiminnot valmiit
-- Ulkoasun muotoilu vielä kesken
-- Virheviestien, tekstien ja tietoturvan viimeistely kesken
-- Voit testata ylläpitäjän oikeuksia luomalla uuden tunnuksen ja lisäämällä tuohon    tunnukseen ylläpitäjän oikeudet komennolla: 
+- Ylläpitäjän oikeuksia voi testata luomalla uuden tunnuksen ja lisäämällä tuohon tunnukseen ylläpitäjän oikeudet komennolla: 
     UPDATE users SET admin=1 WHERE username='luomasi käyttäjätunnus';
 
 **Sovellus ei ole testattavissa Fly.io:ssa**
