@@ -4,7 +4,7 @@
 <b>Arvostelut</b>
 <hr>
 {% for review in reviews %}
-<i>Ravintola:</i> {{ review[0] }}
+<b>Ravintola: {{ review[0] }}</b>
 <p>
 <i>Vierailuaika: </i> <br>
 <i>Päivämäärä</i> {{ review[2] }} <br>
@@ -16,7 +16,8 @@
 <p>
 <i>Palvelu:</i> {{ review[6] }}
 <p>
-<i>Vapaa palaute:</i> {{ review[1] }}
+<i>Vapaa palaute:</i><br> 
+{{ review[1] }}
 <p>
 <i>Arvostelu annettu:</i> {{ review[8].strftime("%Y-%m-%d %H:%M:%S") }} <br>
 <i>Arvostelun antoi:</i> {{ review[7] }}

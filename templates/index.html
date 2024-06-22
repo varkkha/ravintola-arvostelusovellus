@@ -1,34 +1,79 @@
 <!DOCTYPE html>
-<html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<style>
+
+            .headerblock {
+                padding: .5em 1em;
+                background: royalblue;
+            }
+            
             body {
                 margin: auto;
-                max-width: 45em;
+                max-width: 60em;;
                 background: white;
                 font-family: 'Courier New';
-                color: black;
-            
+            }
+
+            form {
+                display: block;
+                background: whitesmoke;
+                padding: 1em 2em;
+            }
+
+            form #login-button{
+                padding:5px;
+                border:none;
+                text-align: center;
+                width: 7em;
+                background: royalblue;
+                border-radius: .5em;
+                color: white;
+                font-family: 'Courier New';
+                font-weight: bold;
+            }
+
+            form #login-button:hover {
+                background: lightskyblue;
+                font-family: 'Courier New';
+                font-weight: bold;
             }
 
         </style>
     </head>
 <title>Ravintola-arvostelut</title>
+
+<p>
+<div class="headerblock">
+<h1> </h1>
+</div>
+
 <form action="/" method="post">
 <p>
-<h1>Ravintola-arvostelut</h1>
+<h2> TERVETULOA RAVINTOLA-ARVOSTELUSOVELLUKSEEN </h2>
 <p>
-<b>Tervetuloa</b>
+Ravintola-arvostelusovelluksessa voit kertoa ravintolakokemuksistasi muille rekisteröityneille käyttäjille. <br>
+<p>
+Voit jättää arvostelun vierailemastasi ravintolasta ja lukea muiden käyttäjien jättämiä arvosteluja ravintoloista.<br> 
+<p>
+Lisäksi voit jättää viestejä esimerkiksi erityisen hyvistä annoksista tai kokemuksista. <br>
+<p>
+Tervetuloa!
 <p>
 <hr>
-Kirjaudu sisään:
+<p>
+<b>Kirjaudu sisään:</b>
 <p>
 Tunnus: <input type="text" name="username">
 <p>
 Salasana: <input type="password" name="password">
 <p>
-<input type="submit" value="Kirjaudu">
-</form>
+<input id="login-button" type="submit" value="Kirjaudu"><br>
+<p>
 Jos sinulla ei ole tunnusta, voit luoda uuden tunnuksen <a href="/register">tästä</a>
-<hr>
+<p>
+</form>
+<div class="headerblock">
+    <h1> </h1>
+    </div>
+

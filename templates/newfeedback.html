@@ -1,9 +1,11 @@
 {% extends "layout.html" %}
 {% block title %}Jätä uusi palaute{% endblock %}
 {% block content %}
+
 <form action="/sendfeedback" method="post">
+    <b>Jätä palautetta sovelluksesta</b>
     <p>
-    Viesti: <br>
+    Palaute: <br>
     <textarea name="note" rows="10" cols="50" required minlength="1" maxlength="50"></textarea>
     <br>
     <input type="submit" value="Lähetä">

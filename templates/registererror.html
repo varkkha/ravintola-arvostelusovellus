@@ -3,19 +3,48 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<style>
+
+            .headerblock {
+                padding: .5em 1em;
+                background: royalblue;
+            }
+            
             body {
                 margin: auto;
-                max-width: 45em;
+                max-width: 60em;;
                 background: white;
                 font-family: 'Courier New';
-                color: black;
-            
+            }
+
+            form {
+                display: block;
+                background: whitesmoke;
+                padding: 1em 2em;
+            }
+
+            form #register-button{
+                padding:5px;
+                border:none;
+                text-align: center;
+                width: 7em;
+                background: royalblue;
+                border-radius: .5em;
+                color: white;
+                font-family: 'Courier New';
+                font-weight: bold;
+            }
+
+            form #register-button:hover {
+                background: lightskyblue;
+                font-family: 'Courier New';
+                font-weight: bold;
             }
 
         </style>
     </head>
-
+<form>
 {{ message }}
-
+</form>
 <p>
-<a href="/">Aloitusivulle</a>
+<a href="/">Takaisin aloitusivulle</a> 
+<a href="/register">Luo uusi tunnus</a> 
