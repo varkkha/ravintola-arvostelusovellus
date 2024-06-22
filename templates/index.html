@@ -48,7 +48,7 @@
 <h1> </h1>
 </div>
 
-<form action="/" method="post">
+<form action="/" method="post" onsubmit="return check(this)">
 <p>
 <h2> TERVETULOA RAVINTOLA-ARVOSTELUSOVELLUKSEEN </h2>
 <p>
@@ -70,10 +70,15 @@ Salasana: <input type="password" name="password">
 <p>
 <input id="login-button" type="submit" value="Kirjaudu"><br>
 <p>
+<font size="4" face='Courier New' color="red">
+    {{message}}
+</font>
+<p>
 Jos sinulla ei ole tunnusta, voit luoda uuden tunnuksen <a href="/register">tästä</a>
 <p>
 </form>
 <div class="headerblock">
     <h1> </h1>
     </div>
+
 

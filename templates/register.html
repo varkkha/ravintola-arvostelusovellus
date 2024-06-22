@@ -43,7 +43,7 @@
         </style>
     </head>
 
-<form action="/register" method="post">
+<form action="/register" method="post" onsubmit="return check(this)">
 
     <h2>Luo uusi tunnus</h2>
 
@@ -59,3 +59,36 @@
 </form>
 <p>
 <a href="/">Takaisin aloitussivulle</a>
+<script>
+    function check(form) {
+        if (form.password1.value != form.password2.value) {
+            alert("Salasanat eivät täsmää");
+            return false;
+        }
+        if (form.password1.value.length < 1) {
+            alert("Tarkista, ettei kentät ole tyhjiä");
+            return false;
+        }
+        if (form.password2.value.length < 1) {
+            alert("Tarkista, ettei kentät ole tyhjiä");
+            return false;
+        }
+        if (form.username.value.length < 1) {
+            alert("Tarkista, ettei kentät ole tyhjiä");
+            return false;
+        }
+        if (form.password1.value.length > 20) {
+            alert("Maksimimerkkimäärä on 20");
+            return false;
+        }
+        if (form.password2.value.length > 20) {
+            alert("Maksimimerkkimäärä on 20");
+            return false;
+        }
+        if (form.username.value.length > 20) {
+            alert("Maksimimerkkimäärä on 20");
+            return false;
+        }
+        return true;
+    }
+    </script>
