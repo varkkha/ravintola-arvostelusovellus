@@ -21,6 +21,30 @@
                 padding: 1em 2em;
             }
 
+            nav li {
+                display: inline-block;
+                padding:5px;
+                border:none;
+                text-align: center;
+                width: 40em;
+                background: dodgerblue;
+                border-radius: .5em;
+                color: white;
+                font-family: 'Courier New';
+                font-weight: bold;
+            }
+
+            nav li a {
+                text-decoration: none;
+                color: white;
+            }
+
+            nav li:hover {
+                background: royalblue;
+                font-family: 'Courier New';
+                font-weight: bold;
+            }
+
             form #login-button{
                 padding:5px;
                 border:none;
@@ -69,53 +93,59 @@ Tervetuloa!
 <form>
 <b>Arvostelut:</b>
 <p>
-<a href="/newreview">Jättää uuden arvostelun</a> 
+<ul>
+<li><a href="/newreview">Jätä uusi arvostelu</a></li>
 <p>
-<a href="/reviewslist">Lukea muiden jättämiä arvosteluja</a>
+<li><a href="/reviewslist">Lue arvosteluja</a></li> 
 <p>
-<a href="/newsearchreview">Hakea ravintolan arvostelua</a>
+<li><a href="/newsearchreview">Etsi arvostelua</a></li>
 <p>
 {% if session.admin == 1 %}
-<a href="/deletereview">Poistaa arvostelun</a>
+<li><a href="/deletereview">Poista arvostelu</a></li><br>
 {% endif %}
+</ul>
 <p>
 <p>
 <p>
 <b>Viestit:</b>
 <p>
-<a href="/newmessage">Kirjoittaa uuden viestin</a>
+<ul>
+<li><a href="/newmessage">Jätä uusi viesti</a></li>
 <p>
-<a href="/messageslist">Lukea muiden kirjoittamia viestejä kaikista aihealueista</a>
-<p>
-<p style="margin-left: 25px;">
-<a href="/messageslisthelsinki">Lukea muiden kirjoittamia ravintolasuosituksia Helsinkiin</a>
+<li><a href="/messageslist">Lue viestejä kaikista aihealueista</a></li>
 <p>
 <p style="margin-left: 25px;">
-<a href="/messageslistfood">Lukea muiden kirjoittamia annossuosituksia</a>
+<li><a href="/messageslisthelsinki">Lue muiden kirjoittamia ravintolasuosituksia Helsinkiin</a></li>
 <p>
 <p style="margin-left: 25px;">
-<a href="/messageslistexperience">Lukea muiden kirjoittamia suosituksia erityisistä kokemuksista</a>
+<li><a href="/messageslistfood">Lue muiden kirjoittamia annossuosituksia</a></li>
 <p>
 <p style="margin-left: 25px;">
-<a href="/messageslistavoid">Lukea muiden kirjoittamia viestejä vältettävistä ravintoloista</a>
+<li><a href="/messageslistexperience">Lue muiden kirjoittamia suosituksia erityisistä kokemuksista</a></li>
+<p>
+<p style="margin-left: 25px;">
+<li><a href="/messageslistavoid">Lue muiden kirjoittamia viestejä vältettävistä ravintoloista</a></li>
 </p>
 <p>
-<a href="/newsearchmessage">Hakea viestiä</a>
+<li><a href="/newsearchmessage">Etsi viestiä</a></li>
 <p>
 {% if session.admin == 1 %}
-<a href="/deletemessage">Poistaa viestin</a>
+<li><a href="/deletemessage">Poista viesti</a></li>
 {% endif %}
+</ul>
 <p>
 <p>
 <p>
 <b>Palautteet:</b>  
+<ul>
 <p>
-<a href="/newfeedback">Jättää palautetta sivustosta</a>
+<li><a href="/newfeedback">Jätä palautetta</a></li>
 <p>
 {% if session.admin == 1 %}
-<a href="/feedbackslist">Lukea jätettyjä palautteita</a>
+<li><a href="/feedbackslist">Lue jätettyjä palautteita</a></li>
 {% endif %}
 <p>
+</ul>
 <hr>
 <p>
 {% if session.user_id %}
