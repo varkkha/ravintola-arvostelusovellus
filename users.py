@@ -5,7 +5,9 @@ from sqlalchemy.sql import text
 import secrets
 
 def login(username, password):
-    sql = text("SELECT id, password, admin FROM users WHERE username=:username")
+    sql = text("""SELECT id, password, admin 
+                    FROM users 
+                    WHERE username=:username""")
     result = db.session.execute(sql, {"username":username})
     user = result.fetchone()
     if not user:
@@ -25,7 +27,8 @@ def logout():
 def register(username, password):
     hash_value = generate_password_hash(password)
     try:
-        sql = text("INSERT INTO users (username,password,admin) VALUES (:username,:password,0)")
+        sql = text("""INSERT INTO users (username,password,admin) 
+                        VALUES (:username,:password,0)""")
         db.session.execute(sql, {"username":username, "password":hash_value})
         db.session.commit()
     except:
