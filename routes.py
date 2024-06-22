@@ -68,7 +68,7 @@ def sendreview():
     food = request.form["food"]
     atmosphere = request.form["atmosphere"]
     service = request.form["service"]
-    if reviews.sendreview(restaurant, date, type, food, atmosphere, service, feedback):
+    if reviews.sendreview(restaurant, date, type, food, atmosphere, service, feedback) and 0 < len(restaurant) <= 50 and len(feedback) <= 500:
         return render_template("review.html",   restaurant=restaurant,
                                                 date=date,
                                                 type=type,
@@ -104,7 +104,7 @@ def send():
     content = request.form["content"]
     title = request.form["title"]
     topic = request.form["topic"]
-    if messages.send(title, content, topic):
+    if messages.send(title, content, topic) and 0 < len(title) <= 50 and 0 < len(content) <= 500:
         return render_template("message.html",  title=title,
                                                 content=content,
                                                 topic=topic)
@@ -154,7 +154,7 @@ def sendfeedback():
     if session["csrf_token"] != request.form["csrf_token"]:
         abort(403)
     note = request.form["note"]
-    if feedbacks.sendfeedback(note):
+    if feedbacks.sendfeedback(note) and 0 < len(note) <= 500:
         return render_template("feedback.html",   note=note)
                     
     else:

@@ -16,7 +16,7 @@
     <input type="text" name="title" required minlength="1" maxlength="50">
     <p>
     Viesti: <br>
-    <textarea name="content" rows="3" cols="40" required minlength="1" maxlength="50"></textarea>
+    <textarea name="content" rows="3" cols="40" required minlength="1" maxlength="500"></textarea>
     <br>
     <input type="submit" value="Lähetä">
     <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
