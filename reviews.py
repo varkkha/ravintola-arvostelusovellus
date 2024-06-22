@@ -30,3 +30,4 @@ def deletereview(id):
     sql = text("UPDATE reviews SET visible=0 WHERE id=:id")
     db.session.execute(sql, {"id":id})
     db.session.commit()
+

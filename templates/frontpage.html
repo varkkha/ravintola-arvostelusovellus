@@ -1,36 +1,72 @@
 <!DOCTYPE html>
-<html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<style>
+
+            .headerblock {
+                padding: .5em 1em;
+                background: royalblue;
+            }
+            
             body {
                 margin: auto;
-                max-width: 45em;
+                max-width: 60em;;
                 background: white;
                 font-family: 'Courier New';
-                color: black;
-            
+            }
+
+            form {
+                display: block;
+                background: whitesmoke;
+                padding: 1em 2em;
+            }
+
+            form #login-button{
+                padding:5px;
+                border:none;
+                text-align: center;
+                width: 7em;
+                background: royalblue;
+                border-radius: .5em;
+                color: white;
+                font-family: 'Courier New';
+                font-weight: bold;
+            }
+
+            form #login-button:hover {
+                background: lightskyblue;
+                font-family: 'Courier New';
+                font-weight: bold;
             }
 
         </style>
     </head>
-<title>Ravintola-arvostelut - {% block title %}{% endblock %}</title>
-<body>
-<h1>Ravintola-arvostelut</h1>
+<title>Ravintola-arvostelut</title>
 
-{% if session.user_id %}
-Olet kirjautunut sisään | <a href="/logout">Kirjaudu ulos</a> 
 <p>
+<div class="headerblock">
+<h1> </h1>
+</div>
 
-{% else %}
-<a href="/login">Kirjaudu sisään</a>
-
-{% endif %}
+<form action="/" method="post">
+<p>
+<h2> TERVETULOA RAVINTOLA-ARVOSTELUSOVELLUKSEEN </h2>
+<p>
+Ravintola-arvostelusovelluksessa voit kertoa ravintolakokemuksistasi muille rekisteröityneille käyttäjille. <br>
+<p>
+Voit jättää arvostelun vierailemastasi ravintolasta ja lukea muiden käyttäjien jättämiä arvosteluja ravintoloista.<br> 
+<p>
+Lisäksi voit jättää viestejä esimerkiksi erityisen hyvistä annoksista tai kokemuksista. <br>
+<p>
+Tervetuloa!
+<p>
 <hr>
+<nav>
 </body>
 <p>
-<h1>Mitä haluaisit tehdä?</h1>
+<h2>Mitä haluaisit tehdä?</h2>
 <p>
+<form>
 <b>Arvostelut:</b>
 <p>
 <a href="/newreview">Jättää uuden arvostelun</a> 
@@ -39,7 +75,9 @@ Olet kirjautunut sisään | <a href="/logout">Kirjaudu ulos</a>
 <p>
 <a href="/newsearchreview">Hakea ravintolan arvostelua</a>
 <p>
+{% if session.admin == 1 %}
 <a href="/deletereview">Poistaa arvostelun</a>
+{% endif %}
 <p>
 <p>
 <p>
@@ -64,7 +102,9 @@ Olet kirjautunut sisään | <a href="/logout">Kirjaudu ulos</a>
 <p>
 <a href="/newsearchmessage">Hakea viestiä</a>
 <p>
+{% if session.admin == 1 %}
 <a href="/deletemessage">Poistaa viestin</a>
+{% endif %}
 <p>
 <p>
 <p>
@@ -72,6 +112,24 @@ Olet kirjautunut sisään | <a href="/logout">Kirjaudu ulos</a>
 <p>
 <a href="/newfeedback">Jättää palautetta sivustosta</a>
 <p>
+{% if session.admin == 1 %}
 <a href="/feedbackslist">Lukea jätettyjä palautteita</a>
+{% endif %}
 <p>
 <hr>
+<p>
+{% if session.user_id %}
+Olet kirjautunut sisään | <a href="/logout">Kirjaudu ulos</a>
+<p>
+
+{% else %}
+<a href="/login">Kirjaudu sisään</a>
+
+{% endif %}
+</nav>
+</form>
+<div class="headerblock">
+<h1> </h1>
+</div>
+
+

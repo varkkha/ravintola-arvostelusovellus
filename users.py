@@ -5,7 +5,7 @@ from sqlalchemy.sql import text
 import secrets
 
 def login(username, password):
-    sql = text("SELECT id, password FROM users WHERE username=:username")
+    sql = text("SELECT id, password, admin FROM users WHERE username=:username")
     result = db.session.execute(sql, {"username":username})
     user = result.fetchone()
     if not user:
@@ -13,6 +13,7 @@ def login(username, password):
     else:
         if check_password_hash(user.password, password):
             session["user_id"] = user.id
+            session["admin"] = user.admin
             session["csrf_token"] = secrets.token_hex(16)
             return True
         else:
@@ -39,5 +40,8 @@ def is_admin():
     result = db.session.execute(sql, {"id":session.get("user_id")})
     admin = result.fetchone()
     return admin[0]
+
+def user_role():
+    return session.get("admin")
 
 
