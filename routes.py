@@ -13,7 +13,7 @@ def index():
         if users.login(username, password):
             return redirect("/frontpage")
         else:
-            return render_template("index.html", message="Väärä käyttäjätunnus tai salasana")
+            return render_template("index.html", message="Väärä käyttäjätunnus tai salasana", username=username, password=password)
 
 @app.route("/register", methods=["GET", "POST"])
 def register():

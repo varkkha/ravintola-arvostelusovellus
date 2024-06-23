@@ -1,84 +1,76 @@
 <!DOCTYPE html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<style>
+<html lang="fi">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .headerblock {
+            padding: .5em 1em;
+            background: royalblue;
+        }
+        
+        body {
+            margin: auto;
+            max-width: 60em;
+            background: white;
+            font-family: 'Courier New';
+        }
 
-            .headerblock {
-                padding: .5em 1em;
-                background: royalblue;
-            }
-            
-            body {
-                margin: auto;
-                max-width: 60em;;
-                background: white;
-                font-family: 'Courier New';
-            }
+        form {
+            display: block;
+            background: whitesmoke;
+            padding: 1em 2em;
+        }
 
-            form {
-                display: block;
-                background: whitesmoke;
-                padding: 1em 2em;
-            }
+        form #login-button {
+            padding: 5px;
+            border: none;
+            text-align: center;
+            width: 7em;
+            background: royalblue;
+            border-radius: .5em;
+            color: white;
+            font-family: 'Courier New';
+            font-weight: bold;
+        }
 
-            form #login-button{
-                padding:5px;
-                border:none;
-                text-align: center;
-                width: 7em;
-                background: royalblue;
-                border-radius: .5em;
-                color: white;
-                font-family: 'Courier New';
-                font-weight: bold;
-            }
-
-            form #login-button:hover {
-                background: lightskyblue;
-                font-family: 'Courier New';
-                font-weight: bold;
-            }
-
-        </style>
-    </head>
-<title>Ravintola-arvostelut</title>
-
-<p>
-<div class="headerblock">
-<h1> </h1>
-</div>
-
-<form action="/" method="post" onsubmit="return check(this)">
-<p>
-<h2> TERVETULOA RAVINTOLA-ARVOSTELUSOVELLUKSEEN </h2>
-<p>
-Ravintola-arvostelusovelluksessa voit kertoa ravintolakokemuksistasi muille rekisteröityneille käyttäjille. <br>
-<p>
-Voit jättää arvostelun vierailemastasi ravintolasta ja lukea muiden käyttäjien jättämiä arvosteluja ravintoloista.<br> 
-<p>
-Lisäksi voit jättää viestejä esimerkiksi erityisen hyvistä annoksista tai kokemuksista. <br>
-<p>
-Tervetuloa!
-<p>
-<hr>
-<p>
-<b>Kirjaudu sisään:</b>
-<p>
-Tunnus: <input type="text" name="username">
-<p>
-Salasana: <input type="password" name="password">
-<p>
-<input id="login-button" type="submit" value="Kirjaudu"><br>
-<p>
-<font size="4" face='Courier New' color="red">
-    {{message}}
-</font>
-<p>
-Jos sinulla ei ole tunnusta, voit luoda uuden tunnuksen <a href="/register">tästä</a>
-<p>
-</form>
-<div class="headerblock">
-    <h1> </h1>
+        form #login-button:hover {
+            background: lightskyblue;
+            font-family: 'Courier New';
+            font-weight: bold;
+        }
+    </style>
+    <title>Ravintola-arvostelut</title>
+</head>
+<body>
+    <div class="headerblock">
+        <h1>Ravintola-arvostelut</h1>
     </div>
 
+    <form action="/" method="post">
+        <h2>TERVETULOA RAVINTOLA-ARVOSTELUSOVELLUKSEEN</h2>
+        <p>Ravintola-arvostelusovelluksessa voit kertoa ravintolakokemuksistasi muille rekisteröityneille käyttäjille.</p>
+        <p>Voit jättää arvostelun vierailemastasi ravintolasta ja lukea muiden käyttäjien jättämiä arvosteluja ravintoloista.</p>
+        <p>Lisäksi voit jättää viestejä esimerkiksi erityisen hyvistä annoksista tai kokemuksista.</p>
+        <p>Tervetuloa!</p>
+        <hr>
+        <p><b>Kirjaudu sisään:</b></p>
+        <p>Tunnus: <input type="text" name="username" value="{{ username }}"></p>
+        <p>Salasana: <input type="password" name="password" value="{{ password }}"></p>
+        <p><input id="login-button" type="submit" value="Kirjaudu"></p>
+        <font size="4" face='Courier New' color="red">
+            {{message}}
+        </font>
+        <p>Jos sinulla ei ole tunnusta, voit luoda uuden tunnuksen <a href="/register">tästä</a></p>
+    </form>
+    <div class="headerblock">
+        <h1> </h1>
+    </div>
+
+    {% if message %}
+    <script>
+        alert("{{ message }}");
+    </script>
+    {% endif %}
+</body>
+</html>
 
