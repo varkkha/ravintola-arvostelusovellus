@@ -1,6 +1,26 @@
 {% extends "layout.html" %}
 {% block title %}Jätä uusi viesti{% endblock %}
 {% block content %}
+<style>
+    form #send-button {
+        padding: 5px;
+        border: none;
+        text-align: center;
+        width: 7em;
+        background: dodgerblue;
+        border-radius: .5em;
+        color: white;
+        font-family: 'Courier New';
+        font-weight: bold;
+    }
+
+    form #send-button:hover {
+        background: lightskyblue;
+        font-family: 'Courier New';
+        font-weight: bold;
+    }
+</style>
+
 <form action="/send" method="post">
     <b>Jätä uusi viesti</b>
     <p>
@@ -18,7 +38,7 @@
     Viesti: <br>
     <textarea name="content" rows="3" cols="40" required minlength="1" maxlength="500"></textarea>
     <br>
-    <input type="submit" value="Lähetä">
+    <input id="send-button" type="submit" value="Lähetä">
     <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
     </form>
 
