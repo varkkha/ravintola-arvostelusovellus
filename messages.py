@@ -59,7 +59,7 @@ def searchmessage():
                     FROM messages T, users U 
                     WHERE T.user_id=U.id 
                         AND (T.content ILIKE :query OR T.title ILIKE :query) 
-                        AND visible=1 
+                        AND T.visible=1 
                     ORDER BY T.id DESC""")
     result = db.session.execute(sql, {"query":"%"+query+"%"})
     return result.fetchall()

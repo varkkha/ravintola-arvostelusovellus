@@ -29,7 +29,7 @@ def searchreview():
     query = request.args["query"]
     sql = text("""SELECT E.restaurant, R.feedback, R.date, R.type, R.food, R.atmosphere, R.service, U.username, R.sent_at, R.id 
                     FROM reviews R, users U, restaurants E 
-                    WHERE R.user_id=U.id AND R.restaurant_id=E.id AND E.restaurant LIKE :query AND visible=1 
+                    WHERE R.user_id=U.id AND R.restaurant_id=E.id AND E.restaurant ILIKE :query AND R.visible=1 
                     ORDER BY R.id DESC""")
     result = db.session.execute(sql, {"query":"%"+query+"%"})
     return result.fetchall()
