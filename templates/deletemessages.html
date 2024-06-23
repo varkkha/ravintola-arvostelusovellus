@@ -22,9 +22,9 @@
 </style>
 
 <b>Poista viestejä:</b>
+{% for message in messages %}
 <form action="/deletemessage" method="post">
 <hr>
-{% for message in messages %}
 <i>Otsikko:</i> {{ message[0] }}
 <p>
 <i>Viesti:</i> {{ message[1] }}
@@ -36,8 +36,7 @@
 <input type="hidden" name="id" value= "{{ message[4] }}">
 <input id="delete-button" type="submit" value="Poista">
 <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
-<hr>
-{% endfor %}
 </form>
+{% endfor %}
 
 {% endblock %}

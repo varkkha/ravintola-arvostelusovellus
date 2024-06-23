@@ -178,7 +178,7 @@ def logout():
     return redirect("/")
 
 @app.route("/deletemessage", methods=["get", "post"])
-def deletemessage():
+def deletemessage_view():
 
     if users.is_admin() == 1:
 
@@ -201,7 +201,7 @@ def deletemessage():
         return render_template("error.html", message="Vain ylläpitäjä saa poistaa viestejä")
     
 @app.route("/deletereview", methods=["get", "post"])
-def deletereview():
+def deletereview_view():
 
     if users.is_admin() == 1:
 

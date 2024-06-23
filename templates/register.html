@@ -42,7 +42,7 @@
 </head>
 <body>
     <div class="headerblock">
-        <h1>Rekisteröinti</h1>
+        <h1> </h1>
     </div>
 
     <form action="/register" method="post" onsubmit="return check(this)">
@@ -52,8 +52,9 @@
         <p>Salasana: <input type="password" name="password1" required minlength="1" maxlength="20" value="{{ password1 }}"></p>
         <p>Salasana uudestaan: <input type="password" name="password2" required minlength="1" maxlength="20" value="{{ password2 }}"></p>
         <p><input id="register-button" type="submit" value="Luo tunnus"></p>
-    </form>
+
     <p><a href="/">Takaisin aloitussivulle</a></p>
+</form>
     <script>
         function check(form) {
             if (form.password1.value != form.password2.value) {
@@ -77,5 +78,8 @@
         alert("{{ error }}");
     </script>
     {% endif %}
+<div class="headerblock">
+    <h1> </h1>
+</div>
 </body>
 </html>

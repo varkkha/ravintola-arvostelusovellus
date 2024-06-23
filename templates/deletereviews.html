@@ -22,9 +22,9 @@
 </style>
 
 <b>Poista arvosteluja:</b>
+{% for review in reviews %}
 <form action="/deletereview" method="post">
 <hr>
-{% for review in reviews %}
 <i>Ravintola:</i> {{ review[0] }}
 <p>
 <i>Vierailuaika: </i> <br>
@@ -39,14 +39,13 @@
 <p>
 <i>Vapaa palaute:</i> {{ review[1] }}
 <p>
-<i>Arvostelu annettu:</i> {{ review[8].strftime("%Y-%m-%d %H:%M:%S") }} <br>
+<i>Arvostelu annettu:</i> {{ review[8].strftime("%Y-%m-%d %H:%M:%S") }}
 <i>Arvostelun antoi:</i> {{ review[7] }}<br>
 <p>
 <input type="hidden" name="id" value= "{{ review[9] }}">
 <input id="delete-button" type="submit" value="Poista">
 <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
-<hr>
-{% endfor %}
 </form>
+{% endfor %}
 
 {% endblock %}
