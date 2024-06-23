@@ -1,94 +1,81 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<style>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .headerblock {
+            padding: .5em 1em;
+            background: royalblue;
+        }
 
-            .headerblock {
-                padding: .5em 1em;
-                background: royalblue;
+        body {
+            margin: auto;
+            max-width: 60em;
+            background: white;
+            font-family: 'Courier New';
+        }
+
+        form {
+            display: block;
+            background: whitesmoke;
+            padding: 1em 2em;
+        }
+
+        form #register-button {
+            padding: 5px;
+            border: none;
+            text-align: center;
+            width: 7em;
+            background: royalblue;
+            border-radius: .5em;
+            color: white;
+            font-family: 'Courier New';
+            font-weight: bold;
+        }
+
+        form #register-button:hover {
+            background: lightskyblue;
+            font-family: 'Courier New';
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="headerblock">
+        <h1>Rekisteröinti</h1>
+    </div>
+
+    <form action="/register" method="post" onsubmit="return check(this)">
+        <h2>Luo uusi tunnus</h2>
+        <p>Käyttäjätunnuksen ja salasanan tulee olla 1-20 merkkiä pitkät.</p>
+        <p>Tunnus: <input type="text" name="username" required minlength="1" maxlength="20" value="{{ username }}"></p>
+        <p>Salasana: <input type="password" name="password1" required minlength="1" maxlength="20" value="{{ password1 }}"></p>
+        <p>Salasana uudestaan: <input type="password" name="password2" required minlength="1" maxlength="20" value="{{ password2 }}"></p>
+        <p><input id="register-button" type="submit" value="Luo tunnus"></p>
+    </form>
+    <p><a href="/">Takaisin aloitussivulle</a></p>
+    <script>
+        function check(form) {
+            if (form.password1.value != form.password2.value) {
+                alert("Salasanat eivät täsmää");
+                return false;
             }
-            
-            body {
-                margin: auto;
-                max-width: 60em;;
-                background: white;
-                font-family: 'Courier New';
+            if (form.password1.value.length < 1 || form.password2.value.length < 1 || form.username.value.length < 1) {
+                alert("Tarkista, ettei kentät ole tyhjiä");
+                return false;
             }
-
-            form {
-                display: block;
-                background: whitesmoke;
-                padding: 1em 2em;
+            if (form.password1.value.length > 20 || form.password2.value.length > 20 || form.username.value.length > 20) {
+                alert("Maksimimerkkimäärä on 20");
+                return false;
             }
-
-            form #register-button{
-                padding:5px;
-                border:none;
-                text-align: center;
-                width: 7em;
-                background: royalblue;
-                border-radius: .5em;
-                color: white;
-                font-family: 'Courier New';
-                font-weight: bold;
-            }
-
-            form #register-button:hover {
-                background: lightskyblue;
-                font-family: 'Courier New';
-                font-weight: bold;
-            }
-
-        </style>
-    </head>
-
-<form action="/register" method="post" onsubmit="return check(this)">
-
-    <h2>Luo uusi tunnus</h2>
-
-    Käyttäjätunnuksen ja salasanan tulee olla 1-20 merkkiä pitkät. 
-    <p>
-    Tunnus: <input type="text" name="username" required minlength="1" maxlength="20">
-    <p>
-    Salasana: <input type="password" name="password1" required minlength="1" maxlength="20">
-    <p>
-    Salasana uudestaan: <input type="password" name="password2" required minlength="1" maxlength="20">
-    <p>
-    <input id="register-button" type="submit" value="Luo tunnus">
-</form>
-<p>
-<a href="/">Takaisin aloitussivulle</a>
-<script>
-    function check(form) {
-        if (form.password1.value != form.password2.value) {
-            alert("Salasanat eivät täsmää");
-            return false;
+            return true;
         }
-        if (form.password1.value.length < 1) {
-            alert("Tarkista, ettei kentät ole tyhjiä");
-            return false;
-        }
-        if (form.password2.value.length < 1) {
-            alert("Tarkista, ettei kentät ole tyhjiä");
-            return false;
-        }
-        if (form.username.value.length < 1) {
-            alert("Tarkista, ettei kentät ole tyhjiä");
-            return false;
-        }
-        if (form.password1.value.length > 20) {
-            alert("Maksimimerkkimäärä on 20");
-            return false;
-        }
-        if (form.password2.value.length > 20) {
-            alert("Maksimimerkkimäärä on 20");
-            return false;
-        }
-        if (form.username.value.length > 20) {
-            alert("Maksimimerkkimäärä on 20");
-            return false;
-        }
-        return true;
-    }
     </script>
+
+    {% if error %}
+    <script>
+        alert("{{ error }}");
+    </script>
+    {% endif %}
+</body>
+</html>

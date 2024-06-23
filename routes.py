@@ -20,6 +20,9 @@ def register():
     if request.method == "GET":
         return render_template("register.html")
     if request.method == "POST":
+        username = request.form["username"]
+        password1 = request.form["password1"]
+        password2 = request.form["password2"]
         message = ""
 
         username = request.form["username"]
@@ -45,8 +48,7 @@ def register():
             message="Rekisteröinti onnistui"
             return render_template("registererror.html", message=message)
         else:
-            message="Rekisteröinti ei onnistunut"
-            return render_template("registererror.html", message=message)
+            return render_template("register.html", error="Rekisteröinti ei onnistunut. Valitse toinen käyttäjätunnus.", username=username, password1=password1, password2=password2)
             
 
 @app.route("/frontpage")
