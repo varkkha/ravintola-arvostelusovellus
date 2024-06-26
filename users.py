@@ -32,6 +32,7 @@ def register(username, password):
         db.session.execute(sql, {"username":username, "password":hash_value})
         db.session.commit()
     except:
+        print("Register failed")
         return False
     return login(username, password)
 
