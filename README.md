@@ -14,7 +14,7 @@ Sovelluksen ominaisuuksia:
       - Tunnelma
       - Palvelu
   - Vapaa palaute
-- Käyttäjät voivat lukea muiden jättämiä palautteita ja etsiä arvosteluja ravintolan nimellä.
+- Käyttäjät voivat lukea muiden jättämiä arvosteluja ja etsiä arvosteluja ravintolan nimellä.
 - Käyttäjät voivat kirjoittaa viestejä viestialueelle ja lukea muiden jättämiä viestejä.
 - Käyttäjät voivat etsiä kaikki viestit, joiden osana on annettu sana.
 - Ylläpitäjä voi poistaa tarvittaessa muiden jättämän arvostelun tai viestin. 
